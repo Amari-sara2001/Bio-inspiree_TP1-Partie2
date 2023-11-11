@@ -1,21 +1,18 @@
 package exo2;
 
+
 import java.util.*;
 import java.util.ArrayList;
-
 import java.util.Collections;
-
 import java.util.HashMap;
-
 import java.util.HashSet;
 
-import java.util.Iterator;
-
 import java.util.LinkedList;
-
 import java.util.List;
 
+
 public class BFSWithPriority {
+	
     private Map<Character, List<Character>> graph;
 
     public BFSWithPriority() {
@@ -25,6 +22,7 @@ public class BFSWithPriority {
     public void addEdge(char from, char to) {
         graph.computeIfAbsent(from, k -> new ArrayList<Character>()).add(to);
     }
+   
 
     public List<Character> bfs(char start, char target) {
         Map<Character, Character> parentMap = new HashMap<>();
@@ -69,6 +67,7 @@ public class BFSWithPriority {
         Collections.reverse(path);
         return path;
     }
+ 
 
     public static void main(String[] args) {
         BFSWithPriority graph = new BFSWithPriority();
@@ -90,7 +89,8 @@ public class BFSWithPriority {
         List<Character> bfsResult = graph.bfs(startNode, targetNode);
 
         if (!bfsResult.isEmpty()) {
-            System.out.println("DFS path from " + startNode + " to " + targetNode + ": " + bfsResult);
+            System.out.println("Le chemin BFS  de " + startNode + " à " + targetNode + ": " + bfsResult);
+            
         } else {
             System.out.println("No path from " + startNode + " to " + targetNode);
         }
